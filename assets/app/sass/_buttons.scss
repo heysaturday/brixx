@@ -1,0 +1,87 @@
+.btn.btn-select {
+	@include border-radius(0);
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	font-style: normal;
+	letter-spacing: 5px;
+	padding: 12px 0 0 0;
+	background: {
+		color: #000;
+	}
+	//992px
+	@media(min-width:$screen-md-min) {
+		font-size: 42px;
+		line-height: 2;
+		letter-spacing: .2em;
+
+	}
+}
+
+.btn.btn-change, a.btn.btn-change {
+	@include border-radius(0);
+	border: 3px solid $yellow-base;
+	color: #fff;
+	font-size: 10px;
+	font-style: normal;
+	letter-spacing: 5px;
+	padding: 6px 12px;
+	background: {
+		color: #000;
+	}
+	i {
+		color: $yellow-base;	
+	}
+	//992px
+	@media(min-width:$screen-md-min) {
+		font-size: 17px;
+		letter-spacing: .6em;
+		width: 400px;
+		height: 50px;
+	}
+
+}
+a.btn.btn-change {
+	height: auto;
+	width: auto;
+	padding: 6px 12px;
+	@media(min-width:$screen-md-min) {
+		padding: 10px 20px;
+	}
+}
+
+.index-btn {
+	background: {
+		color: transparent
+	}
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	margin-top: -20px;
+	padding: 10px;
+	&.back {
+		left: -30px;
+		right: auto;
+	}
+	&.forward {
+		left: auto;
+		right: -30px;
+	}
+}
+a.index-btn, a.index-btn:hover, a.index-btn:active, a.index-btn:focus {
+   color: #fff;
+   
+}
+
+.scroll-btn {
+	@include opacity(.75);
+	color: #fff;
+	display: inline-block;
+	text-align: center;
+	font-size: 50px;
+	line-height: 0;
+	&:hover, &:focus {
+	  color: #fff;
+	  text-decoration: none;
+	}
+}

@@ -1,0 +1,72 @@
+#main-nav-modal .modal-dialog {
+  min-height: 100%;
+}
+.modal-open #main-nav-modal.modal {
+  overflow-y: auto;
+}
+#main-nav-modal #main-nav.push-menu-parent ul {
+  @include clearfix;
+  margin: 0;
+  width: 100%;
+  background-color: $yellow-base;
+}
+.nav-menu.push-menu-parent ul {
+  margin-left: auto;
+  width: auto;
+  right: auto;
+}
+
+.nav-menu ul ul.pushmenu { /*this is the nav*/
+	overflow: hidden;
+	overflow-y: scroll;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1000;
+}
+
+
+
+.pushmenu a {
+  display: block; /* drops the nav vertically*/
+
+}
+
+
+
+.pushmenu-left {
+  left: -100%;
+
+}
+
+.pushmenu-left.pushmenu-open {
+  left: 0;
+}
+
+.pushmenu-push {
+  overflow-x: hidden;
+  position: relative;
+  left: 0;
+}
+
+
+/*Transition*/
+.pushmenu, .pushmenu-push {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@each $color in $theme-color-names {
+  @include color-scheme($color) {
+    #main-nav-modal #main-nav.push-menu-parent ul {
+      margin: 0;
+      width: 100%;
+      background-color: getThemeColorValue($color);
+    }
+
+  }
+}
+

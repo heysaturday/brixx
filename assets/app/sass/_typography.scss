@@ -1,0 +1,108 @@
+@import "variables";
+@import "mixins";
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+
+
+.icon-marker-icon-font-01.shift:before {
+    position: relative;
+    top: -.1em;
+    font-size: 140%;
+}
+
+.page-title h2 {
+    //border-bottom: 5px solid $blue-base;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 0;
+    @media(min-width: $screen-md-min) {
+        font-size: 62px;
+        padding: 0 gutter();
+        text-align: left;
+    }
+}
+
+hr.page-title-separator {
+    border-top: 8px solid $blue-base;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.home .page-title h1 {
+    font-size: 67px;
+}
+
+#{headings(1, 6)} {
+    font-family: $font-family-title;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    @include hyphens(auto);
+}
+p {
+    font-weight: bold;
+}
+@each $color in $theme-color-names {
+	@include color-scheme($color) {
+		.page-title h2, hr.page-title-separator {
+			border-color: getThemeColorValue($color);
+		}
+		#{headings(1, 6)} {
+			color: getThemeColorValue($color);
+		}
+	}
+}
+
+
+// .red {
+// 	.page-title h2, .page-title + hr {	
+// 		border-color: $red-base;
+// 	}
+// 	#{headings(1,6)} {
+// 		color: $red-base;
+// 	}
+// }
+// .blue {
+// 	.page-title h2, .page-title + hr {	
+// 		border-color: $blue-base;
+// 	}
+// 	#{headings(1,6)} {
+// 		color: $blue-base;
+// 	}
+// }
+// .yellow {
+// 	.page-title h2, .page-title + hr {	
+// 		border-color: $yellow-base;
+// 	}
+// 	#{headings(1,6)} {
+// 		color: $yellow-base;
+// 	}
+//}
+
+
+.location-wrap {
+    #{headings(1, 6)} {
+        color: #000;
+    }
+    
+    i,
+    small {
+        color: $yellow-base;
+        text-transform: uppercase;
+    }
+}
+
+
+

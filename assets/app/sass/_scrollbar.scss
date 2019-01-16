@@ -1,0 +1,57 @@
+//ngScrollbar styles
+
+.ngsb-wrap .ngsb-scrollbar {
+	@include opacity(1.0);
+	.ngsb-track {
+		background: darken(#fff, 7%);
+		@include border-radius(0);
+	}
+	.ngsb-thumb-pos .ngsb-thumb {
+		@include border-radius(0);
+		background: #000;
+		width: 8px;
+	} 
+	.ngsb-thumb-pos:hover .ngsb-thumb {
+		background: rgba(0, 0, 0, 0.25);
+		filter: "alpha(opacity=25)";
+		-ms-filter: "alpha(opacity=25)";
+	}
+}
+.scrollme {
+	height: 100%;
+}
+.tabbed-nav-wrap {
+	.scrollme {
+		height: 100%;
+	}
+}
+
+/**
+ * Webkit browser scrollbar styles
+ */
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    // -webkit-border-radius: 0px;
+    // border-radius: 10px;
+    background: rgba(222,222,222,1.0);  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	width: 10px;
+    //-webkit-border-radius: 10px;
+    //border-radius: 10px;
+    background: rgba(0,0,0,1.0); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.4); 
+}
+
+

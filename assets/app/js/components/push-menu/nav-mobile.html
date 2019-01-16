@@ -1,0 +1,15 @@
+<div class="mobile-nav-wrap">
+<div class="masthead-utilities-wrap">
+    <div class="navbar navbar-inverse" role="navigation" >
+        <h6 class="hidden">Main Navigation</h6>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+             <div template-url="toggle-btn-mobile.html" main-nav-toggle is-mobile="true" class="cell main-menu-toggle-wrap" ng-class="{'active': mainNavActive}"></div>
+            <a class="navbar-brand" href="{{homeUrl}}"><img class="img-responsive" ng-src="{{brandImagePath}}"></a>
+            <mobile-search-form form-action="{{homeUrl}}"></mobile-search-form>
+        </div>
+    </div>
+
+</div>
+<header class="locations-masthead" location-selector template-url="mobile-header-selector.html"></header>
+</div>

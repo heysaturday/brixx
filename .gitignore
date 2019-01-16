@@ -1,0 +1,35 @@
+assets/.sass-cache
+assets/.sass-cache/*
+*.zip
+log/*.log
+log/*.log.[0-9]
+_dev/
+assets/node_modules
+assets/bower_components
+assets/distrib
+assets/build
+assets/build/*
+assets/build/*.js
+assets/build/*.css
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+*.pdf
+
+# Logs and databases #
+######################
+*.log
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db

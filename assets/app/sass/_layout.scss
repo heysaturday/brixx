@@ -1,0 +1,100 @@
+/**
+ * Susy setup
+ */
+/* Changing Susy default global settings */
+
+$susy: (
+    /* Tells Susy to use 12 columns */
+
+    columns: 12,
+    /* Tells Susy that the container has a max-width of 1120px */
+
+    container: 1120px,
+    /* Tells Susy to use border-box */
+
+    gutters: 1.5,
+
+    global-box-sizing: border-box
+);
+/* Makes border-box properties */
+@include border-box-sizing;
+
+/* =============================================================================
+   Site Layout Styles
+   ========================================================================== */
+
+html {
+    background-color: #000;
+    font-size: $baseFontSize;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    min-width:320px;
+    position: relative;
+}
+body {
+    background: {
+        color: white;
+    }
+    font-family: $font-family-base;
+}
+#page_wrap {
+    @include clearfix;
+    padding: 20px gutter();
+    //992px
+    @media(min-width:$screen-md-min) {
+        padding: 0px gutter() 50px;
+    }
+
+    @media(max-width: $screen-md-min) {
+        .home &.has-notification {
+            padding-top: 64px;
+        }
+    }
+}
+.location-wrap {
+    padding: 0px gutter();
+    //992px
+    @media(min-width:$screen-md-min) {
+        padding: 0px gutter() 50px;
+    }
+
+}
+.has-flyout {
+    #page_wrap {
+        padding: 0px gutter() 80px;
+    }
+   .location-wrap {
+        //992px
+        @media(min-width:$screen-md-min) {
+            padding: 0px gutter() 80px;
+        }
+
+    }
+}
+#content_wrap {
+	@include container;
+	.inside p {
+		font-size: 16px;
+		font-weight: normal;
+		margin-bottom: 1.5em;
+	}
+}
+/* Tells Susy there's 8 columns in the content */
+
+main {
+    @media(min-width: $screen-tablet) {
+        width: 100%;
+    }
+}
+/* Tells Susy there's 4 columns in the sidebar, and its the last item on the row. */
+
+aside {
+    @media(min-width: $screen-tablet) {
+        @include span(4 last);
+    }
+}
+
+
+

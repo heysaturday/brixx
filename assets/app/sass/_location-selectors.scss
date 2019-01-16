@@ -1,0 +1,131 @@
+.selector-tab {
+	overflow: hidden;
+	position: relative;
+	.table {
+		display: table;
+		width: 100%;
+		border-collapse: collapse;
+		border: 0;
+		margin-bottom: 0;
+		margin: 0;
+
+	}
+
+	.table-row {
+		display: table-row;
+		margin: 0;
+		background: {
+			color: $yellow-base;
+
+		}
+
+	}
+	.selector-heading {
+		color: $yellow-base;
+		letter-spacing: .8em;
+		margin-right: -.8em;
+		font-size: 112%;
+		text-align: center;
+		i {
+			color: #fff;
+		}
+	}
+	.cell {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		height: 75px;
+
+	}
+
+	// .marker {
+	// 	font-size: 40px;
+	// 	color: #fff;
+	// 	width:15%;
+	// 	line-height: 0;
+	// 	margin: 0;
+
+	// }
+	.location {
+		width: 100%;
+		text-align: center;
+		font-size: 18px;
+		h5 {
+			letter-spacing: .4em;
+			font-family: $font-family-base;
+			font-size: 70%; //80%;
+			font-weight: bold;
+			word-wrap: break-word;
+			white-space: normal;
+			color: #fff;
+			cursor: pointer;
+			line-height: 1;
+			margin: 0;
+			padding: {
+				top: 20px;
+				bottom: 20px;
+				left: 44px;
+				right: 0;
+			}
+			max-width: 300px;
+			background: {
+				image: url('../images/location-selector-marker.png');
+				position: 10px center;
+				repeat: no-repeat;
+				size: 10%;
+			}
+			&.multiline {
+				width: 90%;
+				margin: 0 auto;
+				font-size: 85%;
+				padding: {
+					top: 10px;
+					bottom: 10px;
+				}
+			}
+			a {
+				color: #fff;
+			}
+
+		}
+	}
+
+}
+
+@each $color in $theme-color-names {
+	@include color-scheme($color) {
+
+		.table-row {
+			background-color: getThemeColorValue($color);
+		}
+		.selector-heading {
+			color: getThemeColorValue($color);
+		}
+	}
+}
+
+// .red {
+// 	.table-row {
+// 		background-color: $red-base;
+// 	}
+// 	.selector-heading {
+// 		color: $red-base;
+// 	}
+
+// }
+// .yellow {
+// 	.table-row {
+// 		background-color: $yellow-base;
+// 	}
+// 	.selector-heading {
+// 		color: $yellow-base;
+// 	}
+// }
+// .blue {
+// 	.table-row {
+// 		background-color: $blue-base;
+// 	}
+// 	.selector-heading {
+// 		color: $blue-base;
+// 	}
+// }

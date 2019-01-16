@@ -1,0 +1,188 @@
+// Navigation
+.mobile-nav-wrap {
+    position: fixed;
+    min-width: 320px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    z-index: 2000;
+    @include box-shadow(0px 6px 5px 0px rgba(0,0,0,0.125));
+}
+
+.navbar {
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar-header {
+    padding-right: 56px;
+}
+
+//override bootstrap when used outside navbar 
+.close-nav.btn {
+    font-size: 24px;
+}
+
+#masthead .navbar-inverse .navbar-toggle:hover,
+#masthead .navbar-inverse .navbar-toggle:focus {
+    background-color: #fff;
+}
+
+.navbar-inverse {
+    background-color: #000;
+    border-color: transparent;
+    margin-bottom: 0px;
+    position: relative;
+    // @include background-image( linear-gradient( to right, #000, #000 80%, $yellow-base 80%, $yellow-base 100%));
+    // //480px
+    // @media(min-width: $screen-xs-min) {
+    //     @include background-image( linear-gradient( to right, #000, #000 86%, $yellow-base 86%, $yellow-base 100%));
+    // }
+    // @media(min-width: 812px) {
+    //     @include background-image( linear-gradient( to right, #000, #000 90%, $yellow-base 90%, $yellow-base 100%));
+    // }
+    //768px
+    @media(min-width: $screen-sm-min) {}
+    .close-nav {
+        @include border-radius(0);
+        background-color: $yellow-base;
+        color: #fff;
+        display: none;
+        font-size: 24px;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 56px;
+        z-index: 1200;
+    }
+    .navbar-toggle {
+        background-color: darken(#fff, 8%);
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 0;
+        float: right;
+        height: 100%;
+        margin-bottom: 0px;
+        margin-right: 0;
+        margin-top: 0;
+        padding: 0px 16px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        z-index: 1000;
+        .icon-bar {
+            background-color: #000;
+            border-radius: 2px;
+            height: 4px;
+            width: 22px;
+        }
+    }
+    &.opened {
+        .navbar-toggle {
+            display: none;
+        }
+        .close-nav {
+            display: block;
+        }
+        @include background-image( linear-gradient( to right, #000, #000 80%, #fff 80%, #fff 100%));
+        //480px
+        @media(min-width:$screen-xs-min) {
+            @include background-image( linear-gradient( to right, #000, #000 86%, #fff 86%, #fff 100%));
+        }
+    }
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+.navbar-brand {
+    display: inline-block;
+    height: 34px;
+    margin-left: 15px;
+    margin-top: 8px;
+    padding: 0;
+    img {
+        height: 34px;
+    }
+}
+
+//The nav list itself
+#main-nav-modal {
+    .modal-dialog {
+        //768px
+        @media(min-width: $screen-sm-min) {
+            width: 100%;
+            margin: 0;
+        }
+    }
+    .modal-header a {
+        display: inline-block;
+        width: 100%;
+    }
+    #main-nav {
+        ul {
+            margin: 0 auto;
+            text-align: center;
+            width: 85%;
+        }
+        li {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            text-align: center;
+            a {
+                color: #fff;
+                background-color: #000;
+            }
+        }
+    }
+}
+
+@each $color in $theme-color-names {
+    @include color-scheme($color) {
+        #main-nav-modal #main-nav {
+            .nav-menu ul .current-menu-item > a,
+            .current-menu-ancestor > a {
+                background-color: getThemeColorValue($color);
+            }
+        }
+    }
+}
+
+
+/**
+ * Begin overrides to accomplish gallery appearance
+ */
+
+
+body #main-nav-modal.primary-nav-modal {   
+    .modal-content {
+        background-color: #fff;
+    }
+    
+    #main-nav {
+        &.push-menu-parent ul {
+            background-color: #fff;
+            ul li a {
+                font-weight: bold;
+            }
+        }
+
+        li {
+            background-color: darken( #fff, 7%);
+            // @include gallery(6 of 12 .0625);
+            margin: {
+                bottom: .5%;
+            }
+            a {
+                color: #000;
+                background-color: darken( #fff, 7%);
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<div id="search_form_wrap" class="clearfix mobile-search-form closed">
+
+  
+  <form class="form-search " role="form" action="{{formAction}}" id="searchform" method="get">
+    <div class="input-group">
+     <input class="form-control" type="search" id="s" name="s" value="" placeholder="Search" />
+     <span class="input-group-btn">
+      <button onclick="document.getElementById('searchform').submit();" class="btn" type="button"><span class="fa fa-search fa-flip-horizontal "></span></button>
+    </span>
+   </div>
+
+
+ </form>
+ <button ng-click="toggle()" class="btn btn-primary" type="button"><span class="fa fa-search fa-flip-horizontal "></span></button>
+</div>
+

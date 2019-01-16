@@ -1,0 +1,111 @@
+#brixx-hero .hero-nav-container {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: auto;
+    .nav-menu ul {
+    	margin-bottom: -5px;
+    	margin-left: 0;
+        width: 100%;
+        li {
+        	display: inline-block;
+            float: none;
+            text-align: center;
+            width: 20%;
+            overflow: hidden;
+            font-size: 18px;
+            //992px
+            @media(min-width:$screen-md-min) {
+                width: 18.6%;
+            }
+            //1200px
+            @media(min-width:$screen-lg-min) {
+                
+            }
+           
+        }
+        a {
+        	color: #fff;
+            /* Fallback for web browsers that don't support RGBa */
+            
+            background-color: transparent;
+            
+            display: block;
+            font-weight: bold;
+            letter-spacing: .6em;
+            font-size: 18px;
+            line-height: 75px;
+            text-decoration: none;
+            text-transform: uppercase;
+            &:hover, &.active {
+            	background-color: #fff;
+                color: $yellow-base;               
+            }
+            //992px
+            @media(min-width:$screen-md-min) {
+                font-size: 85%;
+            }
+            @media(min-width:1400px) {
+                font-size: 90%;
+            }
+            @media(min-width:1600px) {
+                font-size: 100%;                
+            }
+        }
+        //submenu
+        
+        ul {
+            background-color: #fff;
+            bottom: 79px;
+            left: 0;
+            position: absolute;
+            right: auto;
+            top: auto;
+            z-index: 1500;
+            margin-top: 0;
+            padding-top: .5%;
+            li {
+                font-size: 18px;
+                display: block;
+                float: none;
+                @include gallery(3 of 12 .0625);
+                margin: {
+                	bottom: .5%;
+                }
+                a {
+                    font-size: 18px;
+                    font-weight: normal;
+                    color: #000;
+                    background-color: darken( #fff, 7%);
+                    padding: 20% 0;
+                    &:hover {
+                    	background-color: $yellow-base;
+                    	color: #000;
+                    }
+                }
+            }
+        }
+    }
+    .nav-menu ul .current-menu-item > a,
+    .current-menu-ancestor > a {
+        background-color: $yellow-base;
+        background-color: rgba(245, 181, 35, 1.0);
+        cursor: default;
+    }
+    
+    //Responsive
+    //480px
+    @media(min-width: $screen-xs-min) {}
+    //768px
+    @media(min-width:$screen-sm-min) {
+    	
+    }
+    //992px
+    @media(min-width:$screen-md-min) {
+        display: block;
+    }
+    //1200px
+    @media(min-width:$screen-lg-min) {}
+}

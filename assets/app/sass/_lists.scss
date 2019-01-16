@@ -1,0 +1,20 @@
+/* =============================================================================
+   Lists
+   ========================================================================== */
+/*Sometimes we like to list things in columns in our sidebar areas eg. about us sidebar */  
+ul.columns {
+	margin:30px 0 0 15px;
+        float:left;
+}
+ul.columns li {
+
+  float: right;
+  &:nth-child(-n+5) {//first five items align left
+  }
+  &:nth-child(1n+6) {//afterwards...push right
+  }
+	
+	width:49%;
+	
+  
+}

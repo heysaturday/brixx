@@ -1,0 +1,214 @@
+/**
+ * Global modal styles
+ */
+.oversized .modal-dialog {
+	overflow: auto;
+	.modal-content {
+		top: 0;
+		left: 0;
+		@include translate(0, 0);
+	}
+	.modal-body {
+		max-height: none;
+	}
+}
+.modal {
+	z-index: 2000;
+}
+body.modal-open {
+	overflow: hidden !important;
+	overflow-x: hidden !important;
+	overflow-y: hidden !important;
+}
+.modal-dialog {
+	position: relative;
+	height: 100%;
+	margin: 0;
+	max-width: 1200px;
+	width: 100%;
+	overflow: auto;
+	//768px
+	@media(min-width:$screen-md-min) {
+		width: 800px;
+		height: auto;
+	}
+
+}
+.modal.fade .modal-dialog, .modal.in .modal-dialog, .modal-dialog {
+	//992px
+	@media(min-width: $screen-md-min){
+		left: 50%;
+		@include translate(-50%, 0);
+	}
+}
+.modal-header {
+	position: relative;
+	@include clearfix;
+	height: 50px;
+	padding: 0;
+	background: {
+		color:#000;
+	}
+	border: none;
+	.img-wrap {
+		width:40%;
+		float: left;
+		padding-left: 15px;
+		padding-top: 8px;
+		img {
+			height: 34px;
+		}
+	}
+}
+.modal-content {
+	@include box-shadow(none);
+	border: none;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	min-height: 100%;
+	@include translate(0, 0);
+
+	//992px
+	@media(min-width: $screen-md-min){
+		margin-top: 10%;
+		left: 50%;
+		bottom: auto;
+		position: relative;
+		min-height: 0;
+		@include translate(-50%, 0);
+	}
+}
+.modal-body {
+	overflow: auto;
+	padding: 0px;
+	form {
+		padding: 0 15px;
+		margin-bottom: 20px;
+
+	}
+	h6 {
+		color: #000;
+		font-size: 18px;
+		letter-spacing: .5em;
+		text-align: center;
+		.shift {
+			color: $yellow-base;
+			font-size: 200%;
+		}
+		@media(min-width:$screen-sm-min) {
+			font-size: 35px;
+		}
+	}
+	.form-inline {
+		text-align: center;
+	}
+	nav {
+		text-align: center;
+
+		a {
+			display: block;
+			padding: 30px 0;
+			color: #000;
+			font-size:14px;
+			letter-spacing: .25em;
+		}
+	}
+}
+.modal-footer {
+	border: none;
+	padding: 0;
+}
+
+//override bootstrap when used outside navbar
+.btn-close-modal {
+	float: right;
+	@include border-radius(0);
+	display: inline-block;
+	background-color: $yellow-base;
+
+	border: 0;
+	border-left: 8px #fff solid;
+	color: #fff;
+	font-size: 24px;
+	height: 50px;
+	padding: 6px 20px;
+
+	&.bottom {
+
+		border: 0;
+		width:100%;
+		color: #000;
+		font-weight: bold;
+		font-size: 12px;
+		text-align:center;
+		font-style: italic;
+		text-transform: uppercase;
+		letter-spacing: .25em;
+		background: {
+			color: #eff0f0;
+		}
+	}
+}
+
+.vAccordion--default v-pane-header {
+
+	@include box-shadow(0px 6px 5px 0px rgba(0,0,0,0.125));
+	background: {
+		color: $yellow-base;
+	}
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: .25em;
+	padding: 10px 0;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	z-index: 2;
+}
+.vAccordion--default v-pane-header::after, .vAccordion--default v-pane-header::before {
+	display: none;
+}
+.vAccordion--default v-pane-header:hover, .vAccordion--default v-pane-header:focus {
+  color: #fff;
+}
+
+
+@each $color in $theme-color-names {
+	@include color-scheme($color) {
+		.modal-body h6 .shift {
+			color: getThemeColorValue($color);
+		}
+
+
+		.vAccordion--default v-pane-header {
+			background: getThemeColorValue($color);
+		}
+	}
+}
+
+
+#main-nav-modal {
+	.modal-header {
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.modal-body {
+		bottom: 50px;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 50px;
+	}
+	.modal-footer {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+	}
+}

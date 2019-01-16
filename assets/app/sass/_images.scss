@@ -1,0 +1,22 @@
+/* =============================================================================
+   Images
+   ========================================================================== */
+.rh_static_map img {
+    @include roundedCorners(6px);
+}
+
+.featured-img {
+  border-top: 5px solid $red-base;
+}
+.red .featured-img {
+  border-color: $red-base;
+}
+.blue .featured-img {
+  border-color: $blue-base;
+}
+.yellow .featured-img {
+  border-color: $yellow-base;
+}
+
+
+

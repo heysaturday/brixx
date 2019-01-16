@@ -1,0 +1,185 @@
+@import "variables";
+// A flexbox container with center aligned content
+@mixin flexbox-container-columns(){
+  @include flexbox((
+      display: flex,
+      flex-flow: column nowrap,
+      justify-content: flex-start,
+      align-items: stretch,
+      align-content: stretch
+
+    ));
+  @content;
+}
+// A generic starting point for our flexbox container
+@mixin flexbox-container-default(){
+  @include flexbox((
+      display: flex,
+      flex-flow: row nowrap,
+      justify-content: flex-start,
+      align-items: stretch,
+      align-content: stretch
+
+    ));
+  @content;
+}
+
+
+//Brixx uses a placard of sorts to wrap store hours and the flyout menu toggle buttons. It features a drop shadow.
+@mixin placard(){
+  
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 35px;
+  @include box-shadow(0px 6px 5px 0px rgba(0,0,0,0.125));
+}
+
+@function getThemeColorValue($search) {
+    $n1: index($theme-color-names, $search);
+    $debug: "func indx is #{$n1}";
+    @return nth($theme-color-list, $n1);
+   
+}
+//Brixx uses color schemes per page...this mixin makes it easy to apply them
+@mixin color-scheme($color) {
+  
+  .#{$color} {
+    @content
+  }
+  
+}
+
+
+
+// General Mixins
+/**
+* rem Font size mixin. Assumes 62.5% font size set on html tag
+* Usage:
+*   p {
+*        @include font-size(13);
+*      }
+*/
+
+
+@mixin placeholder($color: false) {
+
+
+  @if($color) {
+      .form-control{
+          @include input-placeholder {
+            color:  $color;
+          }
+      }     
+   } @else {
+      @each $color in $theme-color-names {
+        @include color-scheme($color) {
+          .form-control {
+             @include input-placeholder {
+                color:  getThemeColorValue($color);
+              }
+           }
+        }
+      }
+  }
+}
+
+
+	
+
+
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin boxSizing($atts: border-box) {
+    -moz-box-sizing: $atts;
+    -webkit-box-sizing: $atts; 
+    box-sizing: $atts;
+}
+
+@mixin shadow( $atts: 3px 3px 3px rgba(0, 0, 0, 0.32) ) {
+	box-shadow: $atts;
+	-moz-box-shadow: $atts;
+	-webkit-box-shadow: $atts;
+}
+
+@mixin roundedCorners($radius: 16px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin roundedCorner($topLeft: 0, $topRight: 0,$bottomLeft: 0, $bottomRight: 0) {
+	-webkit-border-top-left-radius: $topLeft;
+	-webkit-border-top-right-radius: $topRight;
+	-webkit-border-bottom-right-radius: $bottomRight;
+	-webkit-border-bottom-left-radius: $bottomLeft;
+	-moz-border-radius-topleft: $topLeft;
+	-moz-border-radius-topright: $topRight;
+	-moz-border-radius-bottomright: $bottomRight;
+	-moz-border-radius-bottomleft: $bottomLeft;
+	border-top-left-radius: $topLeft;
+	border-top-right-radius: $topRight;
+	border-bottom-right-radius: $bottomRight;
+	border-bottom-left-radius: $bottomLeft;
+}
+
+
+
+
+
+//Form related mixins
+@mixin otherTextInputs() {
+	input[type="text"],input[type="email"] {
+		@content;	
+	}
+}
+
+
+
+/**
+* And for our responsive layout
+* Usage:
+*   @include breakpoint(nav_break_point) {
+*       float:none;
+*       width:100%;
+*   }
+*/
+@mixin breakpoint($point) {
+    @if $point == nav_break_point {
+    @media only screen 
+    and (max-width : $navBreakPoint)
+    {
+        /* Nav Break Point and below ----------- */
+        @content;
+    }
+  }
+  @if $point == phone_break_point {
+    @media only screen 
+    and (max-width : $phoneBreakPoint) {
+        /* Nav Break Point and below ----------- */
+        @content;
+    }
+  }
+  
+}
+/**
+* Use for pixel responsiveness
+*   Usage: 
+*   @include breakpointSize(1030px) {
+*        padding:0 1%;
+*    } 
+*/
+@mixin breakpointSize($point) {
+	
+	@media only screen 
+	and (max-width : $point)
+	{
+		/* S$point screen size and below ----------- */
+		@content;
+	}
+  
+  
+}

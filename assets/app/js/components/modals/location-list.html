@@ -1,0 +1,57 @@
+<div class="modal fade" check-oversized>
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="img-wrap">
+                    <img class="img-responsive" src="{{brandImagePath}}" />
+                </div>
+                <button class="btn btn-close-modal" ng-click="close()" data-dismiss="modal">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body"  du-scroll-container id="location-list-body">
+                <h6>Your<i class="icon-marker-icon-font-01 shift"></i>Brixx</h6>
+
+                <form id="geosearch" name="geosearch" class="form-inline filter-form" ng-submit="findNearest()" novalidate>
+                  <div class="form-group">
+                    <label>Filter By</label>
+                    <div class="input-group" >
+                     <input ng-model-options="{ debounce: { default: 500 } }" minlength="3" required ng-model="formData.region" type="text" class="form-control" name="region" id="region" placeholder="State or Zip">
+                      <span class="input-group-btn">
+                        <button class="btn" type="submit" ng-disabled="geosearch.$invalid"><span class="fa fa-search fa-flip-horizontal"></span></button>
+                      </span>
+                      <span class="input-group-btn">
+                        <button class="btn" ng-click="clearFilter()"><span class="fa fa-times"></span></button>
+                      </span>
+                    </div>
+                    <!-- input-group -->
+                  </div>
+                  <!-- form-group -->
+                </form>
+                <nav ng-show="filteredLocations">
+                    <ul>
+                        <li ng-repeat="location in filteredLocations"><a ng-class="{'active': location.ID===currentLocation.ID}" data-dismiss="modal" ng-click="onSelect(location)">{{location.blogname}}</a></li>
+                    </ul>
+                </nav>
+                <v-accordion ng-show="!filteredLocations" class="vAccordion--default" control="accordion" multiple>
+                    <v-pane ng-repeat="state in states" id="{{state.group_id}}">
+
+                        <v-pane-header>{{state.heading}}</v-pane-header>
+                        <v-pane-content>
+                            <nav class='location-list-pane-contents'>
+                                <ul>
+                                    <li ng-repeat="location in state.collection | filter:query"><a ng-class="{'active': location.ID===currentLocation.ID}" data-dismiss="modal" ng-click="onSelect(location)">{{location.blogname}}</a></li>
+                                </ul>
+                            </nav>
+                        </v-pane-content>
+                    </v-pane>
+                </v-accordion>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-close-modal bottom" ng-click="close()" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

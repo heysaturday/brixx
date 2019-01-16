@@ -1,0 +1,132 @@
+//When flyout exceends height of viewport....strange things happen...address here. We add the oversized class in our directive
+html.oversized {
+    height: 100%;
+    body {
+        height: 100%;
+    }
+    body > .animate {
+        height: 100%;
+        overflow:hidden;
+        .flyouts {            
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0 !important;
+            overflow: scroll;
+            z-index: 2000;
+            background-color: #FFF;
+        }
+    }
+        
+}
+
+
+.flyouts {
+    position: fixed;  
+    min-width: 320px;  
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    z-index: 90;
+    @media(min-width: $screen-md-min){
+        z-index: 1500;
+    }
+    
+    
+}
+.flyout-wrapper {
+    width: 100%;
+    // background-color: #fff;
+    text-align: center;
+    
+    .flyout-toggle-btn {
+        @include placard;
+        color: #000;
+        background-color: #fff;
+        border-top: 1px solid $gray-lighter;
+        display: inline-block;
+        line-height: 40px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+        letter-spacing: .6em;
+        &:hover {
+            text-decoration: none;
+        }
+        i {
+            color: $yellow-base;
+        }
+        .red i {
+            color: $red-base;
+        }
+        //992px
+        @media(min-width:$screen-md-min) {
+            border-top: 10px solid $yellow-base;
+            padding: 0 30px;
+            width: auto;
+        }
+    }
+    .flyout-content-wrap {
+        @include transition(padding-top 0.125s 0.0625s linear, padding-bottom 0.125s 0.0625s linear, max-height 0.125s 0.0s linear);
+        height: auto;
+        max-height: 0px;
+        overflow: hidden;
+        &.opened {
+            max-height: 5000px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.page-template-menu .flyout-wrapper.nutrition {
+
+    .flyout-toggle-btn {
+        border-color: $red-logo;
+        i {
+            color: $red-logo;
+        }
+        @media(min-width:$screen-md-min) {
+            border-color: $red-logo;
+        }
+    }
+    //992px
+    @media(min-width:$screen-md-min) {
+        display: none;
+    }
+}
+
+.flyout-content-wrap {
+    background-color: #fff;
+    .inside {
+        @include clearfix;
+        padding: 20px gutter();
+    }
+}
+
+@include color-scheme('blue') {
+    .flyout-content-wrap {
+        background-color: #e4e5e6;
+        .inside {
+            padding: 40px gutter();
+        }
+    }
+}
+
+@each $color in $theme-color-names {
+    @include color-scheme($color) {
+        .flyout-wrapper .flyout-toggle-btn {
+            border-color: getThemeColorValue($color);
+            background-color: getThemeColorValue($color);
+            i {
+                color: #fff;
+            }
+            @media(min-width:$screen-md-min) {
+                border-color: getThemeColorValue($color);
+                background-color: getThemeColorValue($color);
+            }
+        }
+    }
+}

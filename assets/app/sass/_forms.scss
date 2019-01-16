@@ -1,0 +1,330 @@
+@import "variables";
+@import "mixins";
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+.rh_contact_us_form_wrapper {
+    // padding: 80px 0;
+}
+.modal-content .rh_contact_us_form_wrapper {
+    padding: 0;
+}
+
+.btn.active:focus, .btn:active:focus, .btn:focus {
+    outline: none;
+}
+
+* {
+    @include input-placeholder {
+        font-family: "futura-pt";
+        font-weight: bold;
+        font-style: italic;
+        text-transform: uppercase;
+        font-size: 10px;
+        line-height: 19px;
+        letter-spacing: .25em;
+    }
+}
+
+@include placeholder();
+
+
+.form-inline {
+    @include clearfix;
+    @media(min-width: $screen-sm-min) {
+        &.two-col {
+            .form-group {
+                @include span(6 of 12);
+                &:last-child {
+                    @include span(6 of 12 last);
+                }
+                margin-bottom: 20px;
+            }
+        }
+        &.three-col {
+            .form-group {
+                @include span(4 of 12);
+                &:last-child {
+                    @include span(4 of 12 last);
+                }
+            }
+        }
+    }
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+}
+
+@media (min-width: $screen-sm-min) {
+    .form-inline .form-control {
+        width: 100%;
+    }
+}
+
+label,
+button,
+a.btn {
+    text-transform: uppercase;
+}
+
+label,
+.checkbox label {
+    color: #000;
+    font-size: 10px;
+    letter-spacing: .5em;
+    font-weight: bold;
+}
+
+button,
+.btn {
+    font-style: italic;
+    border-width: 3px;
+    padding: 6px 30px;
+    font-weight: bold;
+    font-size: 10px;
+    @include border-radius(16px);
+    letter-spacing: .25em;
+}
+
+.form-control {
+    border-width: 3px;
+    border-color: $yellow-base;
+    @include border-radius(16px);
+    color: #000;
+}
+
+@each $color in $theme-color-names {
+    @include color-scheme($color) {
+        button,
+        .btn {
+            background-color: getThemeColorValue($color);
+            border-color: getThemeColorValue($color);
+            color: #fff;
+        }
+        .form-control {
+            border-color: getThemeColorValue($color);
+        }
+        // .filter-form .form-control {
+        //     border-color: $yellow-base;
+        // }
+    }
+}
+
+.opened #search_form_wrap > form {
+    background-color: #fff;
+}
+
+#search_form_wrap {
+    @include placeholder($yellow-base);
+    .form-control {
+        border-color: $yellow-base;
+    }
+    float: right;
+    max-width: 200px;
+    width: 100%;
+    > form {
+        @include span(3 of 4 last);
+        background-color: $yellow-base;
+        overflow: hidden;
+        position: relative;
+    }
+    .btn-primary {
+        //toggle button
+        float: right;
+        background-color: #000;
+        border-color: #000;
+        border-radius: 0;
+        color: #fff;
+        height: 50px;
+        margin: 0;
+        padding: 0;
+        width: 50px;
+        &:active,
+        &:focus,
+        &:visited {
+            outline: 0;
+        }
+        span {
+            font-size: 28px;
+        }
+    }
+    > form,
+    .btn-primary {
+        @include transition(all, .25s, linear);
+    }
+    .input-group {
+        margin-bottom: 0;
+        padding: 8px 4px;
+    }
+    .input-group .form-control:first-child,
+    .input-group-btn:last-child > .btn {
+        @include border-radius(16px);
+    }
+    .input-group-btn {
+        @include border-radius(16px);
+        position: absolute;
+        right: 3px;
+        top: 9px;
+        width: 33px;
+        height: 33px;
+        z-index: 1000;
+        > .btn {
+            background-color: transparent;
+            border-color: transparent;
+            color: $yellow-base;
+            padding: 6px 9px;
+            &:active,
+            &:focus,
+            &:visited {
+                outline: 0;
+            }
+        }
+    }
+}
+
+//closed state
+#search_form_wrap.closed {
+    > form {
+        width: 0;
+    }
+    .btn-primary {
+        margin-right: 10px;
+        padding: 0;
+    }
+}
+
+//Footer forms
+#footer {
+    @include placeholder(#000);
+    .btn {
+        background-color: #000;
+        color: $gray-light;
+        border-color: $gray-light;
+        display: inline-block;
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+        border-color: $gray-light;
+    }
+    .form-search .btn {
+        border-color: transparent;
+    }
+    @media (min-width: $screen-sm-min) {
+        .form-inline .form-control {
+            width: auto;
+        }
+    }
+}
+
+//Filter location
+#geosearch {
+    .form-control:focus {
+        @include box-shadow(none);
+    }
+    .input-group-btn {
+        border-left: 3px solid #fff;
+        &:nth-child(2) {
+            border-left: 2px solid #fff;
+        }
+        .btn {
+            border: 4px solid $yellow-base;
+            padding: 6px 10px;
+            outline: none;
+            &:focus {
+                outline: none;
+            }
+        }
+        &:nth-child(2) .btn {
+            border-radius: 0;
+        }
+    }
+}
+
+@each $color in $theme-color-names {
+    @include color-scheme($color) {
+        #geosearch .input-group-btn .btn {
+            border-color: getThemeColorValue($color);   
+        }
+    }
+}
+
+
+//Pseudo form when location not known
+.filter-form-wrap {
+    position: relative;
+    z-index: 2;
+    @include box-shadow(0px 6px 5px 0px rgba(0, 0, 0, 0.125));
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+    form {
+        @include container(296px);
+        //768px
+        @media(min-width: $screen-sm-min) {
+            @include container(400px);
+            &.form-inline .form-group {
+                display: block;
+            }
+        }
+    }
+    .form-group {
+        margin: 8px 0 10px 0;
+    }
+    label {
+        @include span(4 of 10);
+    }
+    .form-inline input.form-control {
+        @include span(6 of 10 last);
+        &:focus {
+            outline: none;
+        }
+    }
+    //992px
+    @media(min-width:$screen-md-min) {
+        label {
+            font-size: 17px;
+        }
+        form {
+            @include container(450px);
+        }
+    }
+}
+
+//Contact form
+// .email-modal .modal-body {
+//     padding: 15px;
+// }
+
+//Flyout forms
+.flyout-form .form-inline {
+    .form-group {
+        @include span(6 of 12);
+        &:nth-child(2) {
+            @include span(6 of 12 last);
+        }
+    }
+    .btn {
+        clear: both;
+        float: right;
+        margin-top: 20px;
+    }
+}
+
+//Contact Us page form
+.rh_contact_us_form_wrapper {
+    .form-group {
+        margin-bottom: 20px;
+    }
+}

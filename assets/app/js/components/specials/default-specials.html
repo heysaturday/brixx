@@ -1,0 +1,18 @@
+<div class="specials">
+	<a ng-show="showAll!=='true'" class="index-btn forward" ng-click="currentLocation.indexSpecials(1)"><i class="fa fa-chevron-right"></i></a>
+	<a ng-show="showAll!=='true'" class="index-btn back" ng-click="currentLocation.indexSpecials(-1)"><i class="fa fa-chevron-left"></i></a>
+	<div ng-if="showAll!=='true'" ng-repeat="item in currentLocation.currentSpecials track by $index">
+		<dl ng-class="{'shaded': item.highlightMe }" ng-if="item.hasChildren" >
+			<dt>{{item.title}}</dt>
+			<dd ng-repeat="subItem in item.hasChildren">{{subItem.title}}</dd>		
+		</dl>
+	</div>
+
+	<div ng-if="showAll==='true'" ng-repeat="item in currentLocation.allSpecials track by $index">
+		<dl ng-class="{'shaded': item.highlightMe }" ng-if="item.hasChildren" >
+			<dt>{{item.title}}</dt>
+			<dd ng-repeat="subItem in item.hasChildren">{{subItem.title}}</dd>		
+		</dl>
+	</div>
+
+</div>

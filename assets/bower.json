@@ -1,0 +1,63 @@
+{
+  "name": "Brixx-2015-Theme",
+  "version": "1.0.0",
+  "authors": [
+    "Darwin Hadley"
+  ],
+  "description": "A custom WordPress Theme based on Susy layout framework, AngularJS, and Twitter Bootstrap",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "Gruntfile.js",
+    "gulpfile.js"
+  ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "jquery": "~2.1.2",
+    "angular": "1.4.x",
+    "bootstrap-sass-official": "~3.3.1",
+    "angular-toastr": "~1.4.1",
+    "ngGeodist": "~0.0.2",
+    "angular-sanitize": "~1.4.0",
+    "angular-animate": "~1.4.0",
+    "angular-resource": "~1.4.0",
+    "angular-modal-service": "~0.6.6",
+    "v-accordion": "~1.2.6",
+    "ng-scrollbar": "~0.0.8",
+    "ngSmoothScroll": "~1.7.1",
+    "angular-ui-router": "~0.2.15",
+    "angular-busy-tracker": "~1.1.0",
+    "angular-scroll": "~0.7.3",
+    "angular-cookies": "^1.5.7"
+  },
+  "overrides": {
+    "angular-perfect-scrollbar": {
+      "main": [
+        "./src/angular-perfect-scrollbar.js"
+      ]
+    },
+    "bootstrap-sass-official": {
+      "main": [
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff2",
+        "assets/javascripts/bootstrap.js"
+      ]
+    },
+    "ngGeodist": {
+      "main": [
+        "./src/index.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "1.4.x",
+    "perfect-scrollbar": "~0.5.1"
+  }
+}

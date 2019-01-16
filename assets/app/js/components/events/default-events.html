@@ -1,0 +1,37 @@
+<div class="events">
+    <a ng-show="currentLocation.eventMenu.currentEvent" class="index-btn forward" ng-click="currentLocation.indexEvents(1); onEventIndex()"><i class="fa fa-chevron-right"></i></a>
+    <a ng-show="currentLocation.eventMenu.currentEvent" class="index-btn back" ng-click="currentLocation.indexEvents(-1); onEventIndex()"><i class="fa fa-chevron-left"></i></a>
+    <div class="event-wrap" ng-show="!currentLocation.eventMenu.currentEvent">
+        <div class="event-inner">
+            <div class="detail date">
+                
+            </div>
+            <div class="detail content">
+                <div class="inside">
+                    <h4>{{noEventMessage}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="event-wrap" ng-show="currentLocation.eventMenu.currentEvent">
+        <div class="event-inner">
+            <div class="detail date">
+                <span class="month">{{currentLocation.eventMenu.currentEvent.monthName}}</span>
+                <span class="day">{{currentLocation.eventMenu.currentEvent.date.getDate()}}</span>
+            </div>
+            <div class="detail content">
+                <div class="inside">
+                    <div class="scrollme" ng-scrollbar rebuild-on-resize rebuild-on="rebuildNgScrollbar" is-bar-shown="barShown">
+                        <hgroup>
+                            <h4>{{currentLocation.eventMenu.currentEvent.title}}</h4>
+                            <h6>{{currentLocation.eventMenu.currentEvent.time}}</h6>
+                        </hgroup>
+                        <p ng-bind-html="currentLocation.eventMenu.currentEvent.details"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #event-wrap -->
+</div>
+<!-- #events -->

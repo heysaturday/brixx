@@ -1,0 +1,21 @@
+.animate {
+    opacity: 0;
+    transition: 0.125s linear all;
+    &.animation-complete {
+        opacity: 1;
+    }
+}
+
+
+/* The starting CSS styles for the enter animation */
+
+.animate.ng-animate,
+.animate.ng-animate.reveal {
+    opacity: 0;
+}
+
+.animate.reveal {
+    opacity: 1;
+}
+
+

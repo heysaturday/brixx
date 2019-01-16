@@ -1,0 +1,10 @@
+<div id="brixx-hours" ng-show="showHours">
+	<strong>Hours</strong>
+	<div class="hours-wrap">
+		<dl ng-repeat="i in currentLocation.dailyHours">
+	      <dt>{{i.dt}}</dt>
+	      <dd>{{i.dd}}</dd>
+	    </dl>
+    </div>
+	<!-- <strong>Hours:</strong>&nbsp;&nbsp;MON-SAT&colon; {{currentLocation.regularHours.open}} - {{currentLocation.regularHours.close}} | SUN&colon; {{currentLocation.sundayHours.open}} - {{currentLocation.sundayHours.close}}  -->
+</div>

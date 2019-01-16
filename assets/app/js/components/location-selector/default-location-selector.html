@@ -1,0 +1,9 @@
+<h5>Your<i class="icon-marker-icon-font-01 shift"></i>Brixx</h5>
+<address ng-show="currentLocation && currentLocation.ID !== 1">
+<strong class="location-title">{{currentLocation.blogname}}</strong><br />
+	<a target="_blank" href="//maps.google.com?q={{mapQueryString | urlencode}}">{{streetAddress}}</a><br />
+	<a href="tel:{{currentLocation.locationOptions.phone}}">{{currentLocation.locationOptions.phone}}</a>
+</address>
+<a ng-href="{{viewMenuHref}}" class="btn btn-change" ng-style="currentLocation && currentLocation.ID === 1 && {'margin-top': '20px'}"><i class="fa fa-plus"></i> View Menu</a><br /><br />
+<button ng-show="currentLocation && currentLocation.ID !== 1" ng-click="api.showLocations()" class="btn btn-change"><i class="fa fa-plus"></i> Change Location</button>
+<button ng-if="!currentLocation || currentLocation.ID === 1" ng-click="api.showLocations()" class="btn btn-select">{{noLocationMessage}}</button>

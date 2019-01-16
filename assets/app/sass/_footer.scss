@@ -1,0 +1,188 @@
+@each $color in $theme-color-names {
+    @include color-scheme($color) {
+        #footer {
+            border-top: 5px solid getThemeColorValue($color);
+        }
+    }
+}
+
+#footer {
+    #desktop_search_form_wrap {
+        display: none;
+    }
+    form {
+        max-width: 250px;        
+        margin: 0 auto;
+        text-align: center;
+        //768px
+        @media(min-width:$screen-sm-min) {
+            width: 85%;
+        }
+        //992px
+        @media(min-width:$screen-md-min) {
+            max-width: none;
+            width: 100%;
+            text-align: left;            
+        }
+    }
+    #{headings(1, 6)} {
+        font-family: $font-family-base;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    label {
+        color: #fff;
+        font-weight: normal;
+        font-size: 85%;
+    }
+    background-color: #000;
+    border-top: 5px solid $yellow-base;
+    .inside {
+        padding: 16px 0px;
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+        text-align: center;
+        .columns {
+            text-align: left;
+        }
+    }
+
+    nav.footer-nav {
+        &> ul {
+            font-size: 128%;
+            width: 100%;
+            @include flexbox((
+                display: flex,
+                flex-flow: row wrap,
+                justify-content: center            
+            ));
+            li {
+                @include flex( 1 1 100%);
+                font-weight: bold;
+                margin-bottom:12px;
+                a {
+                    display: inline-block;
+                    height: 40px;
+                    line-height: 40px;
+                }
+            }
+        }
+        @media(min-width:$screen-md-min){
+            max-width: none;
+            @include flex(3 3 75%);
+            @include flexbox((
+                display: flex,
+                flex-wrap: wrap,
+                justify-content: left,
+                align-content: stretch
+            ));
+            & > ul {
+                
+                @include flexbox((
+                    display: flex,
+                    flex-flow: row wrap,
+                    justify-content: flex-start,
+                    align-items: center
+                ));
+                li {
+                    @include flex(0 1 auto);
+                    display: inline-block;
+                    width: 33%;
+                    
+                    text-align: center;
+                    margin: 0;
+                    &:last-child {//Our search form
+                        margin-left: auto;
+                    }
+                }
+                a {
+                    height: auto;
+                    line-height: $line-height-base;
+                    margin: auto 0;
+                }
+            }
+            form {
+                margin: 0;
+            }
+        }
+    }
+   
+    //480px
+    @media(min-width:$screen-xs-min) {}
+    //768px
+    @media(min-width:$screen-sm-min) {}
+    //992px
+    @media(min-width:$screen-md-min) {
+        @include flexbox((
+            display: flex,
+            
+        ));
+        // height: 300px;
+        overflow: hidden;
+        padding: 0 gutter();
+        .inside {
+            margin: auto;
+            text-align: left;
+            max-width: none;
+
+            @include flexbox((
+                display: flex,
+                flex-wrap: wrap,
+                justify-content: left,
+                align-content: stretch
+            ));
+            .utilities-wrap {
+                @include flex(1 1 25%);
+            }
+            nav.footer-nav {
+                
+                
+            }
+            
+        }
+        
+        #{headings(1, 6)} {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+       
+        nav.social-nav {
+            margin: {
+                top: 0px;
+                bottom: 0px;
+            }
+        }
+       
+        #desktop_search_form_wrap {
+            padding-right: 40px;
+            form .form-group {  
+                margin-bottom: 0;           
+                @include flexbox((
+                    display: flex,
+                    align-items: center
+                ));
+            }
+            display: block;
+            button {
+                font-size: 24px;
+                padding: 0 6px 0 0;
+            }
+        }
+    }
+    //992
+    .disclaimer_1 {
+        clear: both;
+        color: #fff;
+        a {
+            color: #fff;
+        }
+    }
+} //footer
+
+//ie 11 challenges
+html[data-useragent*='MSIE 10.0'] {
+  
+}

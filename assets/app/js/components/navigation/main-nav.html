@@ -1,0 +1,19 @@
+<div class="main-nav-wrap">
+<!-- <a class="navbar-brand desktop" href="{{homeUrl}}"><img class="img-responsive" ng-src="{{brandImagePath}}"></a> -->
+<div class="desktop-utilities-wrap">
+	<div class="desktop-navbar" role="navigation">
+		<div class="inside">
+			<div class="selector-tab" has-heading="false" location-selector template-url="desktop-selector.html"></div>
+		    <!-- #location -->
+		    <div main-nav-toggle class="cell main-menu-toggle-wrap" ng-class="{'active': mainNavActive}"></div>
+	    </div>
+	    <!-- #inside -->
+		    <nav class="desktop-nav-container desktop-nav-items" ng-class="{'active': mainNavActive}">
+		    	<main-nav-items></main-nav-items>
+		        <?php //include get_stylesheet_directory() . '/inc/primary-nav.php';?>
+		    </nav>
+	</div>
+	<div notification template-url="desktop-notification.html"></div>	
+</div>
+<!-- desktop-utilities-wrap -->
+</div>

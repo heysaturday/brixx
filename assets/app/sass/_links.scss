@@ -1,0 +1,44 @@
+/* =============================================================================
+   Links
+   ========================================================================== */
+
+a,
+a:hover,
+a:active,
+a:focus {
+    outline: 0;
+    outline-offset: 0;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    color: $yellow-base;
+    text-decoration: none;
+}
+
+a.active {
+    text-decoration: underline;
+}
+
+.pager li > a,
+.pager li > span {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: $brand-primary;
+    border: 1px solid $brand-primary;
+    border-radius: 15px;
+    color: #FFF;
+}
+
+.pager li > a:hover,
+.pager li > a:focus {
+    text-decoration: none;
+    background-color: darken($brand-primary, 5%);
+}
+
+.carousel-caption {
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,11 @@
+<nav class="location-wrap device">
+      <div ng-if="currentLocation">
+        <h6>Your<i class="icon-marker-icon-font-01 shift"></i>Brixx</h6>
+        <small>{{currentLocation.blogname}}</small><br />
+        <button ng-click="api.showLocations()" class="btn btn-default">&raquo; change location</button>
+      </div>
+      <div ng-if="!currentLocation">
+        <h6>Your<i class="icon-marker-icon-font-01 shift"></i>Brixx</h6>
+        <button ng-click="api.showLocations()" class="btn btn-default">&raquo; {{noLocationMessage}}</button>
+      </div>
+  </nav>

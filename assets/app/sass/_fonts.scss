@@ -1,0 +1,122 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3030450, 2015-05-22T12:42:36-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: EvelethRegular-Bold by Yellow Design Studio
+ * URL: http://www.myfonts.com/fonts/yellow-design/eveleth/bold/
+ * Copyright: Bold
+ * Licensed pageviews: 500,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3030450
+ * 
+ * © 2015 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+//@import url("//hello.myfonts.net/count/2e3db2");
+//@font-face {font-family: 'EvelethRegular-Bold';src: url('../fonts/2E3DB2_0_0.eot');src: url('../fonts/2E3DB2_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2E3DB2_0_0.woff2') format('woff2'),url('../fonts/2E3DB2_0_0.woff') format('woff'),url('../fonts/2E3DB2_0_0.ttf') format('truetype');}
+
+
+@font-face {
+    font-family: 'eveleth_regularbold';
+    src: url('../fonts/evelethbold-webfont.eot');
+    src: url('../fonts/evelethbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/evelethbold-webfont.woff') format('woff'),
+         url('../fonts/evelethbold-webfont.ttf') format('truetype'),
+         url('../fonts/evelethbold-webfont.svg#eveleth_regularbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'evelethclean_regular';
+    src: url('../fonts/evelethclean-webfont.eot');
+    src: url('../fonts/evelethclean-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/evelethclean-webfont.woff') format('woff'),
+         url('../fonts/evelethclean-webfont.ttf') format('truetype'),
+         url('../fonts/evelethclean-webfont.svg#evelethclean_regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/**
+ * icomoon custom icon fonts
+ */
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?xtfbhk');
+    src:url('../fonts/icomoon.eot?#iefixxtfbhk') format('embedded-opentype'),
+        url('../fonts/icomoon.woff?xtfbhk') format('woff'),
+        url('../fonts/icomoon.ttf?xtfbhk') format('truetype'),
+        url('../fonts/icomoon.svg?xtfbhk#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-marker-icon-font-01:before {
+    content: "\e600";
+
+}
+//Nutrition icons custom font
+@font-face {
+    font-family: 'nutrition-icons';
+    src:url('../fonts/nutrition-icons.eot?pvjogw');
+    src:url('../fonts/nutrition-icons.eot?#iefixpvjogw') format('embedded-opentype'),
+        url('../fonts/nutrition-icons.ttf?pvjogw') format('truetype'),
+        url('../fonts/nutrition-icons.woff?pvjogw') format('woff'),
+        url('../fonts/nutrition-icons.svg?pvjogw#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-nutrition"], [class*=" icon-nutrition"] {
+    font-family: 'nutrition-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-nutrition-gluten-free:before {
+    content: "\e601";
+}
+.icon-nutrition-vegan:before {
+    content: "\e602";
+}
+.icon-nutrition-vegetarian:before {
+    content: "\e603";
+}

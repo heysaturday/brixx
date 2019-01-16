@@ -1,0 +1,211 @@
+/**
+ * Wrapper
+ */
+
+#page_wrap .gels .table-row {
+    background-color: transparent;
+}
+
+#page_wrap .gels {
+    #{headings(1, 6)} {
+        color: #fff;
+        margin: 0;
+        letter-spacing: normal;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.gels {
+    border-collapse: collapse;
+    display: table;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+    .table-row {
+        display: table-row;
+        background-color: transparent;
+    }
+    .table-cell {
+        display: table-cell;
+        padding: 5px;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: uppercase;
+        width: 125px;
+        height: 125px;
+    }
+}
+
+
+/**
+ * Circle Styles
+ */
+
+.circle {
+    position: relative;
+    display: table-cell;
+    margin: 0;
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+// .circle:after {
+//   display: block;
+//   padding-bottom: 100%;
+//   width: 100%;
+//   height: 0;
+//   border-radius: 50%;
+//   background-color: #ddd;
+//   content: "";
+//    @include transition(0.6s);
+//     @include transform-style(preserve-3d);
+//     @include transform(perspective(1000px));    
+//     position: relative;
+//   &:hover {
+//     @include transform(rotateY(0deg));
+//   }
+// }
+.table-cell.red .circle {
+    background-color: $red-base;
+}
+
+.table-cell.blue .circle {
+    background-color: $blue-base;
+}
+
+.table-cell.yellow .circle {
+    background-color: $yellow-base;
+}
+
+// .circle__inner {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+// }
+// .circle__wrapper {
+//   display: table;
+//   width: 100%;
+//   height: 100%;
+// }
+// .circle__content {
+//   display: table-cell;
+//   padding: 0;
+//   vertical-align: middle;
+//   line-height: 1;
+//   font-size: 65%;
+// }
+@media (min-width: $screen-xs-min) {
+    // .circle__content {
+    //   font-size: 100%;
+    // }
+}
+
+@media (min-width: 768px) {
+    // .circle__content {
+    // }
+}
+
+//Coin flip
+
+/* entire container, keeps perspective */
+
+.flip-container {
+    @include perspective(1000);
+    @include transform(perspective(1000px));
+    @include transform-style(preserve-3d);
+}
+
+
+/* START: Accommodating for IE */
+
+.flip-container:hover .back,
+.flip-container.hover .back {
+    @include transform(rotateY(0deg));
+}
+
+.flip-container:hover .front,
+.flip-container.hover .front {
+    @include transform(rotateY(180deg));
+}
+
+
+/* END: Accommodating for IE */
+
+.gels {
+    .flip-container,
+    .front,
+    .back {
+        display: inline-block;
+        width: 125px;
+        height: 125px;
+    }
+    .flipper {
+        @include transition(0.6s);
+        @include transform-style(preserve-3d);
+        @include transform(perspective(1000px));
+        position: relative;
+    }
+    .front,
+    .back {
+        @include backface-visibility(hidden);
+        @include transition(0.6s);
+        @include transform-style(preserve-3d);
+        @include transform(rotateY(0deg));
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .front {
+        @include transform(rotateY(0deg));
+        z-index: 2;
+    }
+    .back {
+        @include transform(rotateY(-180deg));
+    }
+}
+
+/**
+ * Re-shuffle for mobile
+ */
+.gels {
+    .table-cell {
+        display: none;
+        &:first-child, &:nth-child(2) {
+            display: table-cell;
+        }
+        @media (min-width: $screen-sm-min) {
+            display: table-cell;
+        }
+    }
+    &.mobile {
+        .table-cell {
+            display: none;
+            &:nth-child(3), &:nth-child(4) {
+                display: table-cell;
+            }
+        }
+        @media (min-width: $screen-sm-min) {
+            display: none;
+        }
+    }
+}
+
+
+@media (min-width: $screen-sm-min) {
+    // .circle__content {
+    // }
+}
+@media (min-width: $screen-md-min) {
+    // .circle__content {
+    // }
+}

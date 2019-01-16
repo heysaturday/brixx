@@ -1,0 +1,70 @@
+.notification {
+	background-color: #fff;
+	border-top: 2px solid $yellow-base;
+	font-style: italic;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: .25em;
+	padding: 6px 0;
+	position: absolute;
+	top: 125px;
+	left: 0;
+	text-transform: uppercase;
+	width: 100%;
+	z-index: 10;
+	.inside {
+		display: table-row;
+	}
+	.icon {
+		background: {
+			color: $yellow-base;
+		}
+		@include border-top-right-radius(40px);
+		@include border-bottom-right-radius(40px);
+		display: table-cell;
+		height: 40px;
+		padding-right:10px;
+		text-align: right;
+		vertical-align: middle;
+		width: 50px;
+	}
+	.message {
+		display: table-cell;
+		padding: 0 18px;
+		vertical-align: middle;
+	}
+	&.desktop {
+		background-color: darken(#fff,3%);
+		border-top: 0;
+		position: relative;
+		top: 0;
+		z-index:0;
+		height: auto;
+		width: 325px;
+		padding: 10px 10px 10px 0;
+		font-size: 14px;
+
+	}
+
+
+}
+.notification {
+	display: none;
+}
+.home .notification {
+	display: table;
+}
+.home .notification.desktop {
+	display: none;
+}
+
+@media(min-width:$screen-md-min) {
+	.home .notification, .notification.desktop, #masthead .notification.desktop{
+		display: none;
+	}
+
+	.home .notification.desktop {
+		display:block;
+	}
+
+}

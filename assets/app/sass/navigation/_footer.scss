@@ -1,0 +1,15 @@
+.footer-nav {
+  @include clearfix;
+  max-width:236px;
+  margin: 0 auto;
+  li {
+    margin: 8px 0;
+  }
+ 
+}
+#footer nav a {
+	&:hover {
+  		color: $yellow-base;
+  		text-decoration: none;  
+	}
+}

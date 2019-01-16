@@ -1,0 +1,254 @@
+
+//The multilevel nav stuff
+.desktop-nav-container {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 75px;
+
+
+}
+.active.desktop-nav-container {
+	display: block;
+}
+
+.nav-menu ul {
+    margin-left: 0;
+    width:100%;
+    li {
+	    display: block;
+	    float: none;
+	    text-align: center;
+	    
+	}
+	a {
+	    color: #fff;
+	    /* Fallback for web browsers that don't support RGBa */
+		background-color: rgb(0, 0, 0);
+	    /* RGBa with 0.6 opacity */
+	    background-color: rgba(0, 0, 0, 0.9);
+	    display: block;
+	    font-weight: bold;
+	    letter-spacing: .4em;
+	    font-size: 16px;
+	    line-height: 2.81; 
+	    text-decoration: none;
+	    text-transform: uppercase;
+	    &:hover {
+	    	background-color: $yellow-base;
+  			background-color: rgba(245, 181, 35, 1.0);  			
+	    }
+	}
+	//submenu
+	ul {
+	    position: absolute;
+	    top: 0px;
+	    right: 325px;
+	    z-index: 20000;
+	    margin-top: 0;
+	   	li {
+		    display: block;
+		    float: none;
+
+		    a {
+			    font-weight: normal;
+			    background-color: $yellow-base;
+		    	background-color: rgba(245, 181, 35, 0.9);
+		    	font-size: 14px;
+		    	line-height: 2.14;
+		    	
+			}
+		}
+	}
+}
+.nav-menu ul .current-menu-item > a, .current-menu-ancestor > a {
+  background-color: $yellow-base;
+  background-color: rgba(245, 181, 35, 1.0);
+  cursor: default;
+}
+
+
+
+//The wrapper for nav plus notification
+.desktop-utilities-wrap {
+	position: fixed;
+	right: 0;
+	top:0;
+	width: 325px;
+	z-index: 20;
+	@include clearfix;
+}
+
+.home #masthead .desktop-utilities-wrap {
+	position: absolute;
+	.desktop-navbar {
+		display: none;
+	}
+}
+
+
+
+ 
+
+
+//The decorator stuff
+.btn.main-nav-toggle {
+	@include border-radius(0px);
+	border: 0;
+	border-width: 0;
+	color: #000;
+	outline: 0;
+	background: {
+		color: $gray-light;
+		image: none;
+	}
+	background-color: $gray-light;
+	padding: 15px 16px;
+	font-size:32px	
+	
+}
+
+.desktop-navbar {
+	@include clearfix;
+	height:75px;
+	width:325px;
+	position: relative;
+	z-index: 10;
+	background: {
+		color: transparent;
+	}
+	
+	.selector-tab {
+		float: left;
+		width:75%;
+	}
+
+	
+	.main-menu-toggle-wrap {
+		width: 25%;
+		float: right;
+		letter-spacing: normal;
+		
+		.btn {
+			width:100%;
+			padding: 15px 16px;
+			//height:75px;
+		}
+		.fa-times {
+			display: none;
+		}
+		.fa-bars {
+			display: inline-block;
+		}
+		&.active {
+			background-color: darken($gray-light, 15%);
+			// .fa-times {
+			// 	display: inline-block;
+			// }
+			// .fa-bars {
+			// 	display: none;
+			// }
+		}
+	}
+	
+}
+@each $color in $theme-color-names {
+    @include color-scheme($color) {
+        .desktop-navbar {
+        	background-color: getThemeColorValue($color);
+        }
+        
+       
+    }
+}
+
+//We use rgba for our nav item backgrounds...long hand for that here
+.red {
+	.nav-menu ul .current-menu-item > a, .current-menu-ancestor > a {
+		background-color: $red-base;
+		background-color: rgba(202, 24, 36, 1.0);
+	}
+	.nav-menu ul {
+		a {			
+			&:hover {
+				background-color: $red-base;
+				background-color: rgba(202, 24, 36, 1.0); 			
+			}
+		}   
+		//submenu
+		ul {			
+			li {
+				a {
+					background-color: $red-base;
+					background-color: rgba(202, 24, 36, 0.9);
+				}
+			}
+		}
+	}
+}
+.blue {
+	.nav-menu ul .current-menu-item > a, .current-menu-ancestor > a {
+		background-color: $blue-base;
+		background-color: rgba(23, 85, 191, 1.0);
+	}
+	.nav-menu ul {   
+		a {			
+			&:hover {
+				background-color: $blue-base;
+				background-color: rgba(23, 85, 191, 1.0);  			
+			}
+		}
+		//submenu
+		ul {			
+			li {
+				a {
+					background-color: $blue-base;
+					background-color: rgba(23, 85, 191, 0.9);
+				}
+			}
+		}
+	}
+}
+.yellow {
+	.nav-menu ul .current-menu-item > a, .current-menu-ancestor > a {
+		background-color: $yellow-base;
+		background-color: rgba(245, 181, 35, 1.0);
+	}
+	.nav-menu ul {   
+		a {			
+			&:hover {
+				background-color: $yellow-base;
+				background-color: rgba(245, 181, 35, 1.0);  			
+			}
+		}
+		//submenu
+		ul {			
+			li {
+				a {
+					background-color: $yellow-base;
+					background-color: rgba(245, 181, 35, 0.9);
+				}
+			}
+		}
+	}
+}
+
+
+//Homepage fixed nav
+.home .fixed-nav {
+	display: none;
+	@include opacity(0);
+	@include transition(all .125s linear);
+	.navbar-brand {
+		display: none;
+	}
+	&.active {
+		@include opacity(1.0);
+	}
+}
+@media(min-width: $screen-md-min) {
+	.home .fixed-nav {
+		display: block;
+	}
+}

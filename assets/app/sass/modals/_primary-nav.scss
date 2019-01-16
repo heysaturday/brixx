@@ -1,0 +1,19 @@
+.primary-nav-modal {
+	.modal-content {
+		background: {
+			color: $yellow-base;
+		}
+	}
+}
+
+@each $color in $theme-color-names {
+	@include color-scheme($color) {
+		.primary-nav-modal {
+			.modal-content {
+				background: {
+					color: getThemeColorValue($color);
+				}
+			}
+		}
+	}
+}

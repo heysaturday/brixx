@@ -1,0 +1,6 @@
+<header ng-if="myNotification" class="notification">
+    <div class="inside">
+        <div class="icon"><img ng-src="{{iconUrl}}" /></div>
+        <div class="message" ng-bind-html="myNotification"></div>
+    </div>
+</header>

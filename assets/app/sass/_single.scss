@@ -1,0 +1,13 @@
+.single {
+	#page_wrap {
+		padding-top: 100px;
+	}
+	@media(min-width: $screen-md-min) {
+		#page_wrap {
+			padding-top: 0px;
+		}
+		#masthead h2 {
+			display: none;
+		}
+	}
+}

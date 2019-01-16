@@ -1,0 +1,45 @@
+/* =============================================================================
+   Utilities
+   ========================================================================== */
+   
+/*Old IE alert...requires Modernizr*/ 
+.lt-ie9 .home .old_ie {
+	display:block;	
+}
+.old_ie {
+	display:none;
+	text-align:center;
+	width:80%;
+	max-width:900px;
+	margin:0 auto;	
+}
+
+/*Javascript alert...requires Modernizr*/
+.no-js body {
+    height:100%;
+    background: {
+        repeat:no-repeat;
+        position:center 40%;
+    }
+}
+.no-js #page_wrap {
+    display:none;
+}
+.js .js-off {
+	display:none;	
+}
+.no-js .js-off {
+	display:block;	
+}
+.no-js .js-off p {
+	text-align:center;
+        margin-top:10%;
+}
+
+.screen-reader-text {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+
